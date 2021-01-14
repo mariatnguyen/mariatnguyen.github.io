@@ -1,10 +1,12 @@
 ---
-layout: page
+layout: about
 title: About
 permalink: /about/
 ---
 
 <img src="{{ site.baseurl }}/images/its-a-me-maria.png" alt="It's a me! Maria" id="about-img" style="width: 250px;"/>
+
+<h1>About</h1>
 
 I'm a software engineer/front-end developer. This blog is dedicated as an outlet for me to discuss design and programming.
 
