@@ -8,7 +8,7 @@ permalink: /about/
 
 <h1>About</h1>
 
-I'm a software engineer/front-end developer. This blog is dedicated as an outlet for me to discuss design and programming.
+I'm a software engineer/front-end developer located in Los Angeles. This blog is dedicated as an outlet for me to discuss design and programming.
 
 ### Links
 
