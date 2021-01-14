@@ -14,12 +14,15 @@
 
 html {
   font-size: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
 	background: $white;
   font: 18px/1.4 $helvetica;
   color: $darkGray;
+  margin: 0 0 100px;
 }
 
 .container {
@@ -271,6 +274,12 @@ nav {
 }
 
 .wrapper-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 58px;
+  width: 100%;
+  overflow: hidden;
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
@@ -288,11 +297,10 @@ footer {
 //
 #about-img {
   float:right;
-  margin: 0 10px 0 10px 0;
+  margin-left: 20px;
+  margin-bottom:20px;
   @include mobile {
-    position:absolute;
-    top:-99999;
-    left:-99999;
+    display:none;
     float:none;
   }
 }
