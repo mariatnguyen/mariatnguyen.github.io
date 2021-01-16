@@ -14,13 +14,13 @@ The WordPress REST API allows 100 posts per page maximum, with an added paramete
 
 ![6.25 seconds](/images/posts/jan2021/625s.png)
 
-It makes sense. The JSON object is 1.2 MB. It's 100 posts of mixed content, including image URLs, blocks of text, and links. There's bloat from the little details down to the dimensions of each featured thumbnail. 
+It makes sense. The JSON object is 1.2 MB. It's a large, growing number of posts. Each post has mixed content, including image URLs, blocks of text, and links. There's bloat from the minute details down to the dimensions of each small, medium, and large featured thumbnail. 
 
-If you dig into the documentation [a little more](https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/), you can change the way the API handles its request/response using parameters that cut down the size. For example, you can selectively choose which fields to add using the _fields query parameter. 
+If you dig into the documentation [a little more](https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/), you can change the way the API handles its request/response using parameters that cut down the size of your object. For example, you can selectively choose which fields to add using the _fields query parameter. 
 
-However, using the WordPress REST API can still restrict you in some ways. Again, you're only allowed 100 posts maximum. There's also extra, redundant data within the objects - still a lot of bloat.
+However, using the WordPress REST API can still restrict you in some ways. Again, you're only allowed 100 posts maximum. There's also extra, redundant data within the objects — still a lot of bloat.
 
-I created a PHP file that would loop through all post items, and contain only the basic, surface-level object properties that I needed. If I wanted to display just enough to create basic tiles, I'd loop through the id, title, and image.  
+I created a PHP file that would loop through all post items, and contain only the basic, surface-level object properties that I needed. If I wanted to display just enough to create basic tiles, I'd loop through the id, title, and single thumbnail image.  
 
 Here is my code to loop through posts: 
 <div class="blockcode">
@@ -30,12 +30,12 @@ $posts = $query->posts;<br>
 $result = [];<br>
 foreach($posts as $post) {<br>
    $result[] = array(<br>
-      'id' => $post->ID,<br>
-      'date' => $post->post_date,<br>
-      'slug' => $post->post_name,<br>
-      'title' => $post->post_title,<br>
-      'excerpt' => $post->post_excerpt,<br>
-      'thumbnail' => get_the_post_thumbnail_url( $post_id, 'small' ),<br>
+       &emsp; &emsp; 'id' => $post->ID,<br>
+       &emsp; &emsp; 'date' => $post->post_date,<br>
+       &emsp; &emsp; 'slug' => $post->post_name,<br>
+       &emsp; &emsp; 'title' => $post->post_title,<br>
+       &emsp; &emsp; 'excerpt' => $post->post_excerpt,<br>
+       &emsp; &emsp;'thumbnail' => get_the_post_thumbnail_url( $post_id, 'small' ),<br>
    );<br>
 }<br>
 <br>
@@ -57,6 +57,6 @@ After modifying my GET request to direct to my new API, it only took 1.19 second
 
 ![1.19 seconds](/images/posts/jan2021/119s.png)
 
-It loaded in one blink of an eye - 80% faster than the original REST API. 
+It loaded in one blink of an eye — 80% faster than the original REST API. 
 
 Creating my own entry point allowed for much more control and a faster connection. 
