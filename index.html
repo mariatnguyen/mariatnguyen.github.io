@@ -9,7 +9,7 @@ layout: default
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
       <div class="date read-time">
-        {{post.date | "%B %e, %Y" }} | {% include read-time.html content=post.content %}
+        {{ post.date | date: "%B %e, %Y" }} | {% include read-time.html content=post.content %}
       </div>
 
       <div class="entry">
