@@ -271,6 +271,9 @@ nav {
     font-size: 16px;
     padding: 20px;
     background-color: #f0f0f0;
+    .blockcomment {
+      color: $lightGray;
+    }
   }
 
   .comments {
