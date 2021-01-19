@@ -29,12 +29,12 @@ $posts = $query->posts;<br>
 <br>
 $result = [];<br>
 foreach($posts as $post) {<br>
-   $result[] = array(<br>
-       &emsp; &emsp;'id' => $post->ID,<br>
-       &emsp; &emsp;'title' => $post->post_title,<br>
-       &emsp; &emsp;'date' => $post->post_date,<br>
-       &emsp; &emsp;'slug' => $post->post_name,<br>
-       &emsp; &emsp;'thumbnail' => get_the_post_thumbnail_url( $post_id, 'small' ),<br>
+   &emsp; &emsp;$result[] = array(<br>
+       &emsp; &emsp;&emsp; &emsp;'id' => $post->ID,<br>
+       &emsp; &emsp;&emsp; &emsp;'title' => $post->post_title,<br>
+       &emsp; &emsp;&emsp; &emsp;'date' => $post->post_date,<br>
+       &emsp; &emsp;&emsp; &emsp;'slug' => $post->post_name,<br>
+       &emsp; &emsp;&emsp; &emsp;'thumbnail' => get_the_post_thumbnail_url( $post_id, 'small' ),<br>
    );<br>
 }<br>
 <br>
