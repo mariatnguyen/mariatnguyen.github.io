@@ -20,7 +20,7 @@ If you dig into the documentation [a little more](https://developer.wordpress.or
 
 However, using the WordPress REST API can still restrict you in some ways. Again, you're only allowed 100 posts maximum. There's also extra, redundant data within the objects — still a lot of bloat.
 
-I created a PHP file that would loop through all post items, and contain only the basic, surface-level object properties that I needed. If I wanted to display just enough to create basic tiles, I'd loop through the id, title, and single thumbnail image.  
+I created a PHP file that would loop through all post items, and contain only the basic, surface-level object properties that I needed. If I wanted to display just enough to create basic tiles, I'd loop through the id, title, date, and single thumbnail image. 
 
 Here is my code to loop through posts: 
 <div class="blockcode">
@@ -30,11 +30,10 @@ $posts = $query->posts;<br>
 $result = [];<br>
 foreach($posts as $post) {<br>
    $result[] = array(<br>
-       &emsp; &emsp; 'id' => $post->ID,<br>
-       &emsp; &emsp; 'date' => $post->post_date,<br>
-       &emsp; &emsp; 'slug' => $post->post_name,<br>
-       &emsp; &emsp; 'title' => $post->post_title,<br>
-       &emsp; &emsp; 'excerpt' => $post->post_excerpt,<br>
+       &emsp; &emsp;'id' => $post->ID,<br>
+       &emsp; &emsp;'title' => $post->post_title,<br>
+       &emsp; &emsp;'date' => $post->post_date,<br>
+       &emsp; &emsp;'slug' => $post->post_name,<br>
        &emsp; &emsp;'thumbnail' => get_the_post_thumbnail_url( $post_id, 'small' ),<br>
    );<br>
 }<br>
@@ -42,9 +41,11 @@ foreach($posts as $post) {<br>
 print_r( json_encode($result));</p>
 </div>
 
+Following this loop, I linked each tile to a slug that would quickly GET the individual post when clicked. This way, the data was only retrieved for the user when necessary. 
+
 You won't need your theme and other WordPress includes for this page. <b>SHORTINIT</b>, and other parts of this snippet, will help you load a very minimal version of WordPress.
 
-To strip and modify the default settings, I added this to the beginning of my PHP code:
+To strip and change the default settings, I added this to the beginning of my PHP code:
 <div class="blockcode">
 <p>define('WP_USE_THEMES', false);<br>
 ini_set('html_errors', 0);<br>

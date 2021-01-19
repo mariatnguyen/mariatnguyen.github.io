@@ -10,7 +10,7 @@ In a way, a good style sheet is like a clear instructions manual. CSS, Sass, LES
 
 The style sheet should first flow well on the surface. The organization of your selectors should make sense and the style sheet should similarly reflect the DOM, addressing elements from top to bottom, general to specific, and largest to smallest. 
 
-When I was just starting out and tinkering with code, it was straightforward for me to simply append everything to the end — including the elements themselves to the end of an external style sheet and the properties within the elements. Looking back, it feels deviant to do that now. I'd eventually need to make revisions to it. My previous method would get ugly and inconvenient within a short amount of time; it would be harder to manage, to find the right things, and generally just appear to be in random order. 
+When I was just starting out and tinkering with code, it was straightforward for me to simply append everything to the end. I'd add the elements themselves to the end of an external style sheet and write in properties at the end of each element, as I went along. Looking back, it feels deviant to do that now. I'd eventually need to make revisions to it. My previous method would get ugly and inconvenient within a short amount of time; it would be harder to manage and everything would generally just appear to be in random order. 
 
 There is no widely known convention to ordering CSS properties. According to [this](https://css-tricks.com/poll-results-how-do-you-order-your-css-properties/){:target="_blank"} poll on css-tricks.com, 39% of developers randomly arrange their properties with no specific plan. The majority of people do not follow a convention based on property type, and instead group their CSS properties randomly, by line length, or alphabetically.
 
@@ -20,7 +20,7 @@ A portion of developers might subscribe to the [concentric CSS](https://rhodesmi
 
 The CSS box model convention and concentric CSS way of coding both follow the idea of viewing an element as a box with both an inside and outside. However, both practical approaches are different in outcome. 
 
-The way I prefer to prioritize my properties surrounds the idea of building the element. I consider what properties are most important and influential to the element's construction. Additionally, I group by type. 
+The way I prefer to prioritize my properties surrounds the idea of building an element. I consider what properties are most important and influential to the element's construction. Additionally, I group by type. 
 
 In theory, how important a property is can be subjective to the element. An element's purpose could be vastly different from its parent, children, and sibling elements. When I use the word "important," I mean to say that the content is meant to be the focus and all properties surrounding the content are meant as decorations. 
 
@@ -33,7 +33,7 @@ My personal order is:<br>
 • Other<br>
 • Animations
 
-If I have an element that I'm looking to style, the display of the element is the most important to me. The default display for most elements is block or inline. What if the element is initially hidden? What if it needs to be displayed as a flexible item with each child element being a column? This entirely changes the look of it. 
+If I have an element that I'm looking to style, the display property of the element is the most important to me. The default display for most elements is block or inline. What if the element is initially hidden? What if it needs to be displayed as a flexible item with each child element being a column? This entirely changes the look of it. 
 
 After considering where this element is in relation to the page, and how big it is, other box model properties are declared, respectively. Everything complimentary like the background color and text color will succeed. 
 
@@ -78,6 +78,6 @@ Optimizing your style sheet may be more important in settings where the code is 
 
 If you're working with a preexisting style sheet, it may be better to follow conventions that lie within the sheet already. 
 
-Ultimately, putting certain properties before others won't speed up your page. There is no right or wrong way to organize your properties when it comes to how your style sheet is rendered. 
+Ultimately, putting certain properties before others won't speed up your page. There is no right or wrong way to organize your properties in the eyes of a browser. Either way, your style sheet will still be rendered the same no matter how your properties are arranged. 
 
 The "best" way to order your CSS properties could equate to what is most comfortable to you. Whether you're coding for yourself or on a project, it is all about personal preference and what flows right to your eyes. 
