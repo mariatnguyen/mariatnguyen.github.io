@@ -8,7 +8,7 @@ I wanted to build an API that could GET all posts, in the most concise way possi
 
 For a little more context, my posts, hosted on WordPress, would be displayed on another domain. 
 
-I originally used the [WordPress REST API](https://developer.wordpress.org/rest-api/). The default endpoint at <b>/wp-json/wp/v2/posts</b> returns 10 posts per page. An older API exists (admin-ajax.php), but that's long been proven to be less reliable and also slower since more of WordPress is loaded. 
+I originally used the [WordPress REST API](https://developer.wordpress.org/rest-api/){:target="_blank"}. The default endpoint at <b>/wp-json/wp/v2/posts</b> returns 10 posts per page. An older API exists (admin-ajax.php), but that's long been proven to be less reliable and also slower since more of WordPress is loaded. 
 
 The WordPress REST API allows 100 posts per page maximum, with an added parameter. Retrieving all recent 100 posts using the endpoint <b>/wp-json/wp/v2/posts?_embed&per_page=100</b> took a whopping 6.25 seconds to display on the other domain, as shown in the network tab. That's long enough for me to take my cursor over and exit out of the browser after waiting a couple more seconds!
 
@@ -16,7 +16,7 @@ The WordPress REST API allows 100 posts per page maximum, with an added paramete
 
 It makes sense. The JSON object is 1.2 MB. It's a large, growing number of posts. Each post has mixed content, including image URLs, blocks of text, and links. There's bloat from the minute details down to the dimensions of each small, medium, and large featured thumbnail. 
 
-If you dig into the documentation [a little more](https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/), you can change the way the API handles its request/response using parameters that cut down the size of your object. For example, you can selectively choose which fields to add using the _fields query parameter. 
+If you dig into the documentation [a little more](https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/){:target="_blank"}, you can change the way the API handles its request/response using parameters that cut down the size of your object. For example, you can selectively choose which fields to add using the _fields query parameter. 
 
 However, using the WordPress REST API can still restrict you in some ways. Again, you're only allowed 100 posts maximum. There's also extra, redundant data within the objects — still a lot of bloat.
 
