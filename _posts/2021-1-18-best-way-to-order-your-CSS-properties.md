@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Best way to order your CSS properties?
-categories: Style
+categories: CSS
 ---
 
 Overtime, I've learned to respect the beauty of a well-organized, neat style sheet. It's attractive when there's an even amount of tab characters, the multicolored lines are consistent, and I barely have to use CTRL + F. 
