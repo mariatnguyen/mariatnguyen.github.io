@@ -4,15 +4,15 @@ title: Creating a class named Cat
 categories: [Javascript, Objects]
 ---
 
-A class is a function used as a template for creating objects. It is one of Javascript's data types, and is part of what makes Javascript an object-oriented programming (OOP) language.
+A class is a function used as a template for creating objects. It is a data type, and is part of what makes Javascript an object-oriented programming (OOP) language.
 
-Let's say I wanted to create cats within my program, but I wanted multiple kinds of cats with various characteristics, abilities, and names. I could create arrays or nested arrays with this data, but I could also take advantage of classes. 
+Let's say I wanted to create cats within my program, but I wanted multiple kinds of cats with various characteristics, abilities, names, and quirks. I could create arrays or nested arrays with this data, but I could also take advantage of classes. 
 
 Classes are meant to be reusable and scalable, so if an alley cat happens to wander in my space and I decide to keep him, I can easily fit this anonymous kitty in. 
 
 The class function is declared using the "class" keyword, and always requires a "constructor" method – no more than one constructor method and no less than one. Otherwise our cats would all go missing!
 
-Unlike other function declarations, you need to declare your class first to use it. Class expressions are another way to introduce a class function, but here I will be declaring the class.
+Unlike other function declarations, you need to declare your class first to use it. Hoisting doesn't work for classes, as they aren't initialized until evaluation. Class expressions are another way to introduce a class function, but here I will be declaring the class.
 
 <div class="blockcode">
 <p>class Cat {<br>
@@ -24,9 +24,11 @@ Unlike other function declarations, you need to declare your class first to use 
 </p>
 </div>
 
+I've added two properties: "name" and "birthday". The "this" keyword refers to the class scope, so it's referring to the Cat class in this case. Both the name and birthday properties are assigned to itself so I can customize it when creating an object. 
+
 Classes can contain properties and methods beyond the constructor method. 
 
-Let's add some more functionality to the cat object.
+Let's add some more functionality to the class.
 
 <div class="blockcode">
 <p>class Cat {<br>
@@ -43,7 +45,7 @@ Let's add some more functionality to the cat object.
 
 I've added a simple alert function. All cats meow, purr, chatter, and/or have some way of communicating with their surroundings, so this universal method for a cat makes sense.
 
-Cats are funky creatures. Sometimes cats are consistent, and we could add on basic methods to what we have so far. Here's a few more ideas:<br>
+Although cats are funky creatures, they all have the same habits. We could add on basic methods to what we have so far. Here's a few more ideas:<br>
 • scratch()<br>
 • eat()<br>
 • vomit()<br>
@@ -51,13 +53,14 @@ Cats are funky creatures. Sometimes cats are consistent, and we could add on bas
 • nap()<br>
 • runAroundForTenMinutesStraight()<br>
 
-<p style="text-align:center;"><img src="/images/posts/jan2021/cat.png" alt="meow" width="600" height="auto"></p>
 
-Now, let's add more cats.
+<p style="text-align:center;"><img src="/images/posts/jan2021/cat.png" alt="meow" width="500" height="auto"></p>
 
-Inheritance is another reason why Javascript is an OOP language. Inheritance offers the ability for a class to inherit all methods from another class.
+Now, let's use this Cat class to create more variations of cats.
 
-To create a class inheritance, you can use the "extends" keyword when declaring the new child class. The super() method is used to refer to methods from the parent class.
+Inheritance is another reason why Javascript is an OOP language. Inheritance offers the ability for a class to inherit all methods from another class. 
+
+To create an occurrance of inheritance, the "extends" keyword is used when declaring the new child class. The super() method is used to refer to methods from the parent class.
 
 <div class="blockcode">
 <p>class Bombay extends Cat {<br>
@@ -71,9 +74,11 @@ var MrFuzzy = new Bombay("Mr. Fuzzy", "January 27, 2020","Black");
 </p>
 </div>
 
-Some breeds have particular characteristics. In this case, bombay cats are characterized as being very friendly and active. They have unique physical features like having yellow or green eyes and a shiny black coat. We could continue including more methods to this Bombay class. 
+At the end of this code, I have used the child class to create an individual object. The "new" keyword is declared to create this object from a class. 
 
-If I were programming my cat act as he always does, I'd add a conditional statement to .meow() everytime his food bowl was empty. 
+Some breeds have particular characteristics. For example, bombay cats are characterized as being very friendly and active. They have unique physical features including yellow or green eyes and a shiny black coat. There's a lot more that could be added to this Bombay child class.
+
+If I were programming my cat to act as he always does, I'd add a conditional statement to .meow() everytime his food bowl was empty. 
 
 We could also continue making a Calico, Tabby, American Shorthair, etc class to extend the Cat class. 
 
