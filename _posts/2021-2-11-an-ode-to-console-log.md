@@ -7,7 +7,7 @@ categories: [Javascript]
 
 You were there for me when all I knew was "Hello World."
 
-I've used debugger().
+I've used debugger;
 
 I've used console.error().
 
