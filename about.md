@@ -17,5 +17,3 @@ I'm located in Los Angeles.
 [github](https://github.com/mariatnguyen)
 
 [linkedin](https://www.linkedin.com/in/mariatnguyen/)
-
-[email](mailto:mariatnguyen@mail.com)
