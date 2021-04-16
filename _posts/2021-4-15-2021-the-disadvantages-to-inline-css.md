@@ -4,10 +4,6 @@ title: The Disadvantages of Inline CSS
 categories: CSS
 ---
 
-<div class="blockcode">
-<p style="font-size:20px;font-weight:bold;text-transform:uppercase;">The Disadvantages of Inline CSS</p>
-</div>
-
 There are several downsides to implementing unique styles within an HTML element. Some may even consider inline CSS to be bad practice. Here are just a few disadvantages:
 
 1. Hard to keep track of
@@ -33,6 +29,10 @@ The HTML markup will not be as smooth and can be harder to parse manually.
 6. Pseudo-elements and Pseudo-classes
 
 You won't be able to style pseudo-elements and pseudo-classes with inline styles, since they are abstractions of the DOM. You can only modify HTML elements already on the page. This leaves the page looking more static and with less power in your hands, since you won't be able to specify things like :hover or ::after. 
+
+<div class="blockcode">
+&lt;p style="font-size:20px;font-weight:bold;text-transform:uppercase;"&gt;We're gonna have to do a lot of copy and pasting...&lt;/p&gt;
+</div>
 
 
 There are valid use cases for inline CSS. One of my most common uses for inline CSS is if I need to toggle or add overriding styles when using Javascript. Another use would be if I was creating a single page that requires little complexity, and could potentially be more cumbersome if I added stylesheets.  
